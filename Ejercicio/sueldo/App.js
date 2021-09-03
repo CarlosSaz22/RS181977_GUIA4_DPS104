@@ -29,10 +29,12 @@ export default function App(){
     }, [nombre, sueldo]);
     const calculate = () => {
     reset();
-    if (!nombre) {
+    if (!nombre.trim()) {
       setErrorMessage('Añade el nombre ');
-      } else if (!sueldo) {
+      } else if (!sueldo.trim()) {
       setErrorMessage('Añade el sueldo base');
+    } else if (sueldo<=0) {
+      setErrorMessage('El sueldo debe ser mayor a 0');
       }else {
 
       const AFP=sueldo*0.04;
